@@ -524,11 +524,20 @@ header div i {
   border-bottom: 2px solid var(--primocolore);
 }
 
-.servicespecial {
+.sk{
   min-height: calc(100vh + 75px);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.servicespecial {
+  position: static;
+  min-height: calc(100vh + 75px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   flex-direction: column;
   background-color: var(--primocolore);
   background-size: cover;
@@ -1113,3 +1122,69 @@ footer a:hover {
   }
 }
 
+/* Rimuovi la larghezza e altezza fissa e lascia che la griglia si adatti automaticamente */
+.box {
+  position: relative;
+  background-image: url(img/retailbg.png); 
+  background-size: cover; 
+  background-position: center; 
+  color: white; 
+  border-radius: 20px;
+  overflow: hidden; 
+  padding: 20px; /* Spazio interno per evitare che il contenuto tocchi i bordi */
+  transition: transform 0.3s ease; /* Transizione fluida */
+}
+.box:hover {
+  /* transform: scale(1.01);  */
+}
+
+
+
+.box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(9, 2, 22, 0.8);
+  z-index: 0;
+}
+
+.box .content {
+  position: relative;
+  
+  z-index: 1;
+}
+
+.box .content p {
+width: 80%;
+border-left: 1px solid white;
+border-radius: 1px;
+padding-left: 0.6em;}
+
+
+.box > .content a {
+  text-decoration: none;
+  margin: 0;
+  color: white;
+}
+
+.box span {
+  font-size: 1.1em;
+  padding-bottom: 0.3em;
+  margin: 0;
+}
+
+/* Piccolo link sotto il titolo */
+.box a p {
+  font-size: 1em;
+  margin-bottom: 20px;
+  color: white;
+  
+}
+
+.box a span:hover {
+  /* font-weight: bold; */
+  border-bottom: 2px solid white;
+}
