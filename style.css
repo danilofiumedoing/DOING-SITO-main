@@ -86,8 +86,9 @@ body {
   --celestechiaro: #6b98f4;
 }
 
+
 .josefin-sans-font {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Jura", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
@@ -418,6 +419,35 @@ header div i {
   }
 }
 
+.servicehome {
+  /* background: url("img/sfondodoing.jpg") no-repeat center center; */
+  background-size: cover;
+  background-position: initial; /* Mostra la parte destra dell'immagine */
+ background-image: url(img/prova.png);
+
+
+}
+
+.servicehome::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(9, 2, 22,0.6); /* Cambia il colore e l'opacità se vuoi */
+}
+
+
+@media (max-width: 1200px) {
+  .servicehome {
+    background-image: url(img/provamobile.png);
+  }
+ 
+}
+
+
+
 /* contenuto stile */
 .service2 {
   min-height: calc(100vh + 75px);
@@ -651,9 +681,9 @@ header div i {
 .scroll-arrow {
   position: absolute; /* Posizione assoluta */
   bottom: 55px; /* Fissa la freccia in basso */
-  left: 50%; /* Centra orizzontalmente */
+  left: 49%; /* Centra orizzontalmente */
   padding-bottom: 80px;
-  transform: translateX(-50%); /* Correggi il centro */
+  transform: translateX(-49%); /* Correggi il centro */
   font-size: 24px;
   color: #fff;
   text-decoration: none;
@@ -676,9 +706,9 @@ header div i {
 .scroll-arrow-special {
   position: absolute; /* Posizione assoluta */
   bottom: 55px; /* Fissa la freccia in basso */
-  left: 50%; /* Centra orizzontalmente */
+  left: 49%; /* Centra orizzontalmente */
   padding-bottom: 80px;
-  transform: translateX(-50%); /* Correggi il centro */
+  transform: translateX(-49%); /* Correggi il centro */
   font-size: 24px;
   color: var(--primocolore);
   text-decoration: none;
@@ -694,9 +724,9 @@ header div i {
 .scroll-arrow-special2 {
   position: absolute; /* Posizione assoluta */
   bottom: 55px; /* Fissa la freccia in basso */
-  left: 50%; /* Centra orizzontalmente */
+  left: 49%; /* Centra orizzontalmente */
   padding-bottom: 80px;
-  transform: translateX(-50%); /* Correggi il centro */
+  transform: translateX(49%); /* Correggi il centro */
   font-size: 24px;
   color: white;
   text-decoration: none;
@@ -832,6 +862,28 @@ footer a:hover {
   .spaceteam .container .row .item {
     padding: 0 2em;
     /* Forza ogni card ad occupare la stessa altezza */
+  }
+
+  .scroll-arrow {
+    
+    bottom: 85px; /* Fissa la freccia in basso */
+   
+  }
+ 
+  
+ 
+  .scroll-arrow-special {
+    
+    bottom: 85px; /* Fissa la freccia in basso */
+   
+  }
+  
+  
+  
+  .scroll-arrow-special2 {
+  
+    bottom: 85px; /* Fissa la freccia in basso */
+ 
   }
 }
 
@@ -1060,3 +1112,4 @@ footer a:hover {
     transform: rotate(0deg);
   }
 }
+
