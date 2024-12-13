@@ -417,6 +417,9 @@ header div i {
     background-position: center center;
     background-size: cover;
   }
+  .ppp{
+    font-size: 0.6em;
+  }
 }
 
 .servicehome {
@@ -1123,6 +1126,8 @@ footer a:hover {
 }
 
 /* Rimuovi la larghezza e altezza fissa e lascia che la griglia si adatti automaticamente */
+
+
 .box {
   position: relative;
   background-image: url(img/retailbg.png); 
@@ -1188,3 +1193,67 @@ padding-left: 0.6em;}
   /* font-weight: bold; */
   border-bottom: 2px solid white;
 }
+
+.video-bordered {
+  border: 2px solid #ffffff; /* Imposta il bordo (nero in questo caso) */
+  border-radius: 15px; /* Rende gli angoli arrotondati */
+  padding: 3px; /* Aggiunge spazio tra il video e il bordo */
+}
+
+
+.box2 {
+  position: relative;
+  background-color: transparent; 
+  color: white; 
+  border-radius: 20px;
+  overflow: hidden; 
+  padding: 20px; /* Spazio interno per evitare che il contenuto tocchi i bordi */
+  border: 2px solid white;
+}
+
+/* 
+Lavori nel settore aereospaziale ferroviaro?
+Arriva ARCA AVIA, il sfotware realizzato da Doing per semplificare il tuo lavoro;
+vantaggi
+Integrazione con gli uffici;
+Completa gestione della logistica avanzata con supporto degli standard INDICOD "UCC/EAN-128" "SSCC"
+Schedulatore integrato;
+Configurazione degli utenti e dei ruoli per consentire le autorizzazioni e responsabilita degli operatori
+sincronizzazione con le richieste dei clienti
+elaborazione mrp a ciclo chiuso
+ordini di produzione e MES MANUFACTURING EXECUTION SYSTEM */
+
+
+.box2 .content {
+  position: relative;
+  z-index: 1;
+}
+
+.box2 .content p {
+width: 80%;
+border-left: 1px solid white;
+border-radius: 1px;
+padding-left: 0.6em;}
+
+
+.box2 > .content a {
+  text-decoration: none;
+  margin: 0;
+  color: #090216;
+}
+
+.box2 span {
+  font-size: 1.1em;
+  padding-bottom: 0.3em;
+  margin: 0;
+}
+
+/* Piccolo link sotto il titolo */
+.box2 a p {
+  font-size: 1em;
+  margin-bottom: 20px;
+  
+  
+}
+
+
