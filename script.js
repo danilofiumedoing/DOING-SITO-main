@@ -1,5 +1,39 @@
 document.addEventListener("DOMContentLoaded", function () {
+  window.addEventListener('scroll', function() {
+    const infoFixed = document.querySelector('.infofixed');
+    
+    // Verifica se la pagina è scrollata più di 200px
+    if (window.scrollY > 200) {
+      infoFixed.style.opacity = '1';  // Rende visibile l'elemento
+      infoFixed.style.bottom = '0';   // Muove l'elemento in posizione visibile
+    } else {
+      infoFixed.style.opacity = '0';  // Nasconde l'elemento
+      infoFixed.style.bottom = '-300px';  // Lo riporta fuori dalla vista
+    }
+  });
+  
+  
+  window.addEventListener('scroll', function() {
+    const element = document.querySelector('.part-trasparnt');
+    
+    if (window.scrollY > 200) {
+      element.style.backgroundColor = '#0045ff';
+    } else {
+      element.style.backgroundColor = 'var(--primocolore)';
+    }
+  });
+  
+ 
+  const header = document.querySelector("header");
+  const scrollThreshold = 200; // Numero di pixel dopo cui cambiare colore
 
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > scrollThreshold) {
+      header.style.backgroundColor = "#0045ff"; // Colore rosso
+    } else {
+      header.style.backgroundColor = ""; // Torna al colore di default
+    }
+  });
 
    // Configura l'Intersection Observer
    const observer = new IntersectionObserver(

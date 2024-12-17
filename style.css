@@ -27,13 +27,13 @@ html {
   max-width: 100%;
 }
 
-iframe {
+/* iframe {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 70%;
-}
+} */
 
 body.fade-in {
   opacity: 0;
@@ -74,6 +74,20 @@ body {
   font-size: 25px;
   color: var(--primocolore);
 }
+.infofixed {
+  color: white;
+  padding: 0.7em;
+  background-color: #0045ff;
+  position: fixed;
+  bottom: -300px; /* Inizialmente fuori dal viewport */
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  opacity: 0; /* Invisibile inizialmente */
+  transition: bottom 0.5s ease, opacity 0.5s ease; /* Transizione di bottom e opacità */
+}
+
+
 
 .overicon:hover {
   color: #0045ff;
@@ -85,7 +99,6 @@ body {
   --azzurro: #0045ff;
   --celestechiaro: #6b98f4;
 }
-
 
 .josefin-sans-font {
   font-family: "Jura", sans-serif;
@@ -104,6 +117,11 @@ header {
   z-index: 100000;
   color: white;
   font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+.color {
+  color: #291e86;
 }
 
 header div img {
@@ -134,10 +152,11 @@ header div i {
   border-bottom-left-radius: 10px;
 }
 
-.dropdown .part-trasparnt {
+.part-trasparnt {
   margin: 0;
   min-height: 22px;
   background-color: var(--primocolore);
+  transition: background-color 0.3s ease;
 }
 
 .service-link .dropdown li {
@@ -178,7 +197,7 @@ header div i {
 }
 .nav-item {
   padding-bottom: 2px;
-  border-bottom: 2px solid var(--primocolore);
+  border-bottom: 2px solid transparent;
 }
 .nav-item:hover {
   border-bottom: 2px solid white;
@@ -398,7 +417,6 @@ header div i {
   /* background: url("img/sfondodoing.jpg") no-repeat center center; */
   background-size: cover;
   background-position: initial; /* Mostra la parte destra dell'immagine */
-
 }
 
 .service9::before {
@@ -411,13 +429,12 @@ header div i {
   background: rgba(9, 2, 22, 0.7); /* Cambia il colore e l'opacità se vuoi */
 }
 
-
 @media (max-width: 768px) {
   .service9 {
     background-position: center center;
     background-size: cover;
   }
-  .ppp{
+  .ppp {
     font-size: 0.6em;
   }
 }
@@ -426,9 +443,7 @@ header div i {
   /* background: url("img/sfondodoing.jpg") no-repeat center center; */
   background-size: cover;
   background-position: initial; /* Mostra la parte destra dell'immagine */
- background-image: url(img/prova.png);
-
-
+  background-image: url(img/prova.png);
 }
 
 .servicehome::before {
@@ -438,18 +453,14 @@ header div i {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(9, 2, 22,0.6); /* Cambia il colore e l'opacità se vuoi */
+  background: rgba(9, 2, 22, 0.6); /* Cambia il colore e l'opacità se vuoi */
 }
-
 
 @media (max-width: 1200px) {
   .servicehome {
     background-image: url(img/provamobile.png);
   }
- 
 }
-
-
 
 /* contenuto stile */
 .service2 {
@@ -459,7 +470,7 @@ header div i {
   align-items: center;
   flex-direction: column;
   /* background-color: white; */
-  background-image: url(img/test2.avif);
+  background-image: url(img/sfondodoing.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* EFFETTO PARALLAX */
@@ -468,6 +479,21 @@ header div i {
   font-size: 45px;
   text-align: left;
   padding: 0 20px;
+}
+
+.service2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(
+    228,
+    228,
+    228,
+    0.8
+  ); /* Cambia il colore e l'opacità se vuoi */
 }
 
 .service2 .content {
@@ -527,7 +553,7 @@ header div i {
   border-bottom: 2px solid var(--primocolore);
 }
 
-.sk{
+.sk {
   min-height: calc(100vh + 75px);
   display: flex;
   justify-content: center;
@@ -573,6 +599,7 @@ header div i {
   margin-bottom: 0;
   margin: 0;
 }
+
 .servicespecial > .content p {
   margin-top: 0.6em;
   font-size: 0.5em;
@@ -598,7 +625,6 @@ header div i {
   transition: opacity 0.3s ease-in-out;
 }
 
-
 /* Piccolo link sotto il titolo */
 .servicespecial a p {
   font-size: 1rem;
@@ -623,7 +649,7 @@ header div i {
   align-items: center;
   flex-direction: column;
   /* background-color: white; */
-  background-image: url(img/test2.avif);
+  background-image: url(img/sfondodoing.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* EFFETTO PARALLAX */
@@ -633,6 +659,22 @@ header div i {
   text-align: left;
   padding: 1em;
 }
+
+.servicespecial2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(
+    228,
+    228,
+    228,
+    0.8
+  ); /* Cambia il colore e l'opacità se vuoi */
+}
+
 .servicespecial2 .content {
   display: flex;
   flex-direction: column;
@@ -703,10 +745,8 @@ header div i {
   z-index: 1;
 }
 
-.scroll-scopri{
- 
+.scroll-scopri {
   transition: color 0.3s; /* Effetto di transizione */
- 
 }
 
 /* Effetto Hover sulla freccia */
@@ -877,25 +917,15 @@ footer a:hover {
   }
 
   .scroll-arrow {
-    
     bottom: 85px; /* Fissa la freccia in basso */
-   
   }
- 
-  
- 
+
   .scroll-arrow-special {
-    
     bottom: 85px; /* Fissa la freccia in basso */
-   
   }
-  
-  
-  
+
   .scroll-arrow-special2 {
-  
     bottom: 85px; /* Fissa la freccia in basso */
- 
   }
 }
 
@@ -1102,8 +1132,6 @@ footer a:hover {
   }
 }
 
-
-
 .wave-motion {
   display: inline-block;
   animation: swing 6s infinite ease-in-out;
@@ -1116,7 +1144,7 @@ footer a:hover {
   25% {
     transform: rotate(10deg);
   }
-  
+
   75% {
     transform: rotate(-10deg);
   }
@@ -1127,23 +1155,20 @@ footer a:hover {
 
 /* Rimuovi la larghezza e altezza fissa e lascia che la griglia si adatti automaticamente */
 
-
 .box {
   position: relative;
-  background-image: url(img/retailbg.png); 
-  background-size: cover; 
-  background-position: center; 
-  color: white; 
+  background-image: url(img/retailbg.png);
+  background-size: cover;
+  background-position: center;
+  color: white;
   border-radius: 20px;
-  overflow: hidden; 
+  overflow: hidden;
   padding: 20px; /* Spazio interno per evitare che il contenuto tocchi i bordi */
   transition: transform 0.3s ease; /* Transizione fluida */
 }
 .box:hover {
   /* transform: scale(1.01);  */
 }
-
-
 
 .box::before {
   content: "";
@@ -1158,16 +1183,16 @@ footer a:hover {
 
 .box .content {
   position: relative;
-  
+
   z-index: 1;
 }
 
 .box .content p {
-width: 80%;
-border-left: 1px solid white;
-border-radius: 1px;
-padding-left: 0.6em;}
-
+  width: 80%;
+  border-left: 1px solid white;
+  border-radius: 1px;
+  padding-left: 0.6em;
+}
 
 .box > .content a {
   text-decoration: none;
@@ -1186,7 +1211,6 @@ padding-left: 0.6em;}
   font-size: 1em;
   margin-bottom: 20px;
   color: white;
-  
 }
 
 .box a span:hover {
@@ -1200,13 +1224,12 @@ padding-left: 0.6em;}
   padding: 3px; /* Aggiunge spazio tra il video e il bordo */
 }
 
-
 .box2 {
   position: relative;
-  background-color: transparent; 
-  color: white; 
+  background-color: transparent;
+  color: white;
   border-radius: 20px;
-  overflow: hidden; 
+  overflow: hidden;
   padding: 20px; /* Spazio interno per evitare che il contenuto tocchi i bordi */
   border: 2px solid white;
 }
@@ -1223,18 +1246,17 @@ sincronizzazione con le richieste dei clienti
 elaborazione mrp a ciclo chiuso
 ordini di produzione e MES MANUFACTURING EXECUTION SYSTEM */
 
-
 .box2 .content {
   position: relative;
   z-index: 1;
 }
 
 .box2 .content p {
-width: 80%;
-border-left: 1px solid white;
-border-radius: 1px;
-padding-left: 0.6em;}
-
+  width: 80%;
+  border-left: 1px solid white;
+  border-radius: 1px;
+  padding-left: 0.6em;
+}
 
 .box2 > .content a {
   text-decoration: none;
@@ -1252,8 +1274,4 @@ padding-left: 0.6em;}
 .box2 a p {
   font-size: 1em;
   margin-bottom: 20px;
-  
-  
 }
-
-
