@@ -1,14 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener('scroll', function() {
     const infoFixed = document.querySelector('.infofixed');
+    const scrollPosition = window.scrollY + window.innerHeight; // Posizione dello scroll + altezza della finestra
+    const pageHeight = document.documentElement.scrollHeight; // Altezza totale della pagina
     
-    // Verifica se la pagina è scrollata più di 200px
+    // Mostra l'elemento quando scrolli oltre 200px
     if (window.scrollY > 200) {
-      infoFixed.style.opacity = '1';  // Rende visibile l'elemento
-      infoFixed.style.bottom = '0';   // Muove l'elemento in posizione visibile
+      infoFixed.style.opacity = '1'; // Rende visibile l'elemento
+      infoFixed.style.bottom = '0';  // Posiziona l'elemento in vista
     } else {
-      infoFixed.style.opacity = '0';  // Nasconde l'elemento
-      infoFixed.style.bottom = '-300px';  // Lo riporta fuori dalla vista
+      infoFixed.style.opacity = '0'; // Nasconde l'elemento
+      infoFixed.style.bottom = '-300px'; // Lo sposta fuori dalla vista
+    }
+    
+    // Nascondi l'elemento quando mancano 300px alla fine della pagina
+    if (pageHeight - scrollPosition <= 150) {
+      infoFixed.style.opacity = '0'; // Nasconde l'elemento
+      infoFixed.style.bottom = '-300px'; // Lo sposta fuori dalla vista
     }
   });
   
@@ -164,9 +172,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const images = [
-    "img/sfondodoing.jpg",
-    "img/sfondodoing2.jpg",
-    "img/sfondodoing3.jpg",
+    "img/prova.png",
+    "img/software-archiviazione.jpg",
+    "img/aereospaziale.jpg",
+   
+    "img/train.jpg",
+
   ];
 
   let currentImageIndex = 0;
@@ -191,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
     newBgDiv.style.opacity = "0"; // Parte nascosto
 
     // Aggiungiamo il filtro scuro al nuovo div
-    newBgDiv.style.backgroundColor = "rgba(9, 2, 22, 0.6)";
+    newBgDiv.style.backgroundColor = "rgba(9, 2, 22, 0.7)";
     newBgDiv.style.backgroundBlendMode = "overlay";
 
     serviceSection.appendChild(newBgDiv);
@@ -217,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Cambia immagine ogni 4 secondi
-  setInterval(changeBackground, 6000);
+  setInterval(changeBackground, 5000);
 });
 
 // script.js
