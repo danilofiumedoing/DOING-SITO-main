@@ -226,7 +226,7 @@
         <div class="col-12 col-md-6 mt-5 p-5">
           <h2 class="">Richiedi Informazioni</h2>
 
-          <form id="myForm" action="https://formspree.io/f/mrbgbvra" method="POST" class="p-0" onsubmit="clearForm()">
+          <form id="contact-form" class="p-0" >
             <div class="row gy-3">
               <div class="col-12 col-lg-6 p-0">
                 <label class="form-label col-12"
@@ -273,28 +273,28 @@
                 <label class="form-label col-12"
                   >Servizio di interesse
                   <select name="servizio" id="servizio" class="form-select p-2 limited-width">
-                    <option value="sistemigestionali">
+                    <option value="ERP – Sistemi Gestionali – Business Intelligence – CRM">
                       ERP – Sistemi Gestionali – Business Intelligence – CRM
                     </option>
-                    <option value="sistemipos">
+                    <option value="Sistemi POS e Software per Retail">
                       Sistemi POS e Software per Retail
                     </option>
-                    <option value="cloudarchitect">
+                    <option value="Cloud Architect e Virtualizzazione">
                       Cloud Architect e Virtualizzazione
                     </option>
-                    <option value="veeamcloud">
+                    <option value="Veeam Cloud & Service Provider – Cloud Backup">
                       Veeam Cloud & Service Provider – Cloud Backup
                     </option>
-                    <option value="sicurezzainformatica">
+                    <option value="Sicurezza Informatica & Networking">
                       Sicurezza Informatica & Networking
                     </option>
-                    <option value="assistenzasistemistica">
+                    <option value="Assistenza Sistemistica e Software – Monitoring e Backup">
                       Assistenza Sistemistica e Software – Monitoring e Backup
                     </option>
-                    <option value="serviziodispatching">
+                    <option value="Service – Delivery – Hardware – Servizio di Dispatching">
                       Service – Delivery – Hardware – Servizio di Dispatching
                     </option>
-                    <option value="sistemiweb">
+                    <option value="Web – Social Media Marketing – Web/Mobile App">
                       Web – Social Media Marketing – Web/Mobile App
                     </option>
                   </select>
@@ -315,7 +315,7 @@
               </div>
 
               <div class="col-12 mt-3 ml-3 p-0">
-                <button type="submit" class="btsend">INVIA</button>
+                <button type="submit" class="btn btn-dark" style="background-color: var(--primocolore);" onclick="clearForm()">INVIA</button>
               </div>
             </div>
           </form>
@@ -338,6 +338,10 @@
         </div>
       </div>
     </div>
+      <!-- Pop-up di conferma -->
+  <div id="popup" class="popup">
+    Grazie per averci contattato. Risponderemo il prima possibile!
+  </div>
 
     <div class="service2"  >
       <div class="content">
@@ -359,6 +363,80 @@
         <a href="/privacy_policy.html">Privacy Policy</a> | <a href="/cookie_policy.html">Cookie Policy</a>
       </p>
     </footer>
+    <div class="infofixed">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div
+          class="col-12 col-md-4 justify-content-center align-items-center d-none d-md-flex"
+        >
+          <a href="tel:0813175539" class="text-decoration-none text-white"
+            >TEL: 0813175539</a
+          >
+        </div>
+        <div
+          class="col-12 col-md-4 justify-content-center align-items-center d-none d-md-flex"
+        >
+          <a
+            href="mailto:info@doingsrl.it"
+            class="text-decoration-none text-white"
+            >INFO@DOINGSRL.IT</a
+          >
+        </div>
+        <div
+          class="col-12 col-md-4 justify-content-center align-items-center d-flex"
+        >
+          <a class="text-decoration-none text-white" href="contatti.html">
+            RICHIEDI INFORMAZIONI</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- <h1>Contattaci</h1>
+    <form id="contact-form">
+      <input type="hidden" name="contact_number" value="697483">
+      <label>Name</label>
+      <input type="text" name="user_name">
+      <label>Email</label>
+      <input type="email" name="user_email">
+      <label>Message</label>
+      <textarea name="message"></textarea>
+      <input type="submit" value="Send">
+  </form> -->
+
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+    <script>
+        // Inizializzazione di EmailJS
+        (function(){
+      emailjs.init({
+        publicKey: "8mJnTToE_7YC8QDIA",
+      });
+   })();
+    </script>
+     <script type="text/javascript">
+      
+      window.onload = function() {
+          document.getElementById('contact-form').addEventListener('submit', function(event) {
+            const popup = document.getElementById('popup');
+              event.preventDefault();
+              // these IDs from the previous steps
+              emailjs.sendForm('service_qri69hb', 'template_m5lfc1k', this)
+                  .then(() => {
+                      console.log('SUCCESS!');
+                       // Mostra il pop-up
+                  popup.style.display = 'block';
+
+                  // Nascondi il pop-up dopo 2 secondi
+                  setTimeout(function () {
+                    popup.style.display = 'none';
+                  }, 4000); // 2000ms = 2 secondi
+                  }, (error) => {
+                      console.log('FAILED...', error);
+                  });
+          });
+      }
+  </script>
 
 
     <script src="script.js"></script>

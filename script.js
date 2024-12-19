@@ -1,50 +1,46 @@
 document.addEventListener("DOMContentLoaded", function () {
-  window.addEventListener('scroll', function() {
-    const infoFixed = document.querySelector('.infofixed');
-    const scrollPosition = window.scrollY + window.innerHeight; // Posizione dello scroll + altezza della finestra
-    const pageHeight = document.documentElement.scrollHeight; // Altezza totale della pagina
-    
-    // Mostra l'elemento quando scrolli oltre 200px
-    if (window.scrollY > 200) {
-      infoFixed.style.opacity = '1'; // Rende visibile l'elemento
-      infoFixed.style.bottom = '0';  // Posiziona l'elemento in vista
-    } else {
-      infoFixed.style.opacity = '0'; // Nasconde l'elemento
-      infoFixed.style.bottom = '-300px'; // Lo sposta fuori dalla vista
-    }
-    
-    // Nascondi l'elemento quando mancano 300px alla fine della pagina
-    if (pageHeight - scrollPosition <= 150) {
-      infoFixed.style.opacity = '0'; // Nasconde l'elemento
-      infoFixed.style.bottom = '-300px'; // Lo sposta fuori dalla vista
-    }
-  });
-  
-  
-  window.addEventListener('scroll', function() {
-    const element = document.querySelector('.part-trasparnt');
-    
-    if (window.scrollY > 200) {
-      element.style.backgroundColor = '#0045ff';
-    } else {
-      element.style.backgroundColor = 'var(--primocolore)';
-    }
-  });
-  
- 
+
+  //codice gestione effetto header
+  const element = document.querySelector(".part-trasparnt");
+  const infoFixed = document.querySelector(".infofixed");
   const header = document.querySelector("header");
-  const scrollThreshold = 200; // Numero di pixel dopo cui cambiare colore
+  let lastScrollY = window.scrollY; // Memorizza la posizione iniziale dello scroll
 
   window.addEventListener("scroll", function () {
-    if (window.scrollY > scrollThreshold) {
-      header.style.backgroundColor = "#0045ff"; // Colore rosso
+    const currentScrollY = window.scrollY; // Posizione attuale dello scroll
+    const scrollPosition = currentScrollY + window.innerHeight; // Posizione dello scroll + altezza della finestra
+    const pageHeight = document.documentElement.scrollHeight; // Altezza totale della pagina
+
+    // Se mancano meno di 150px dalla fine della pagina, nascondi l'elemento
+    if (pageHeight - scrollPosition <= 10) {
+      infoFixed.style.opacity = "0"; // Nasconde l'elemento
+      infoFixed.style.bottom = "-300px"; // Lo sposta fuori dalla vista
     } else {
-      header.style.backgroundColor = ""; // Torna al colore di default
+      // Gestisci il comportamento in base alla direzione dello scroll
+      if (currentScrollY > lastScrollY) {
+        // Scroll verso il basso
+        header.style.backgroundColor = "#0045ff";
+        element.style.backgroundColor = "#0045ff";
+        infoFixed.style.opacity = "1"; // Rende visibile l'elemento
+        infoFixed.style.bottom = "0"; // Posiziona l'elemento in vista
+      } else if (currentScrollY < lastScrollY) {
+        // Scroll verso l'alto
+        element.style.backgroundColor = "var(--primocolore)";
+        header.style.backgroundColor = "var(--primocolore)";
+        infoFixed.style.opacity = "0"; // Nasconde l'elemento
+        infoFixed.style.bottom = "-300px"; // Lo sposta fuori dalla vista
+      }
     }
+
+    lastScrollY = currentScrollY; // Aggiorna la posizione precedente
   });
 
-   // Configura l'Intersection Observer
-   const observer = new IntersectionObserver(
+    //codice gestione effetto header
+
+
+
+  // Configura l'Intersection Observer
+  const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -62,8 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Applica l'osservatore agli elementi della seconda sezione
   const elementsToAnimate = document.querySelectorAll(".animate-on-scroll");
   elementsToAnimate.forEach((el) => observer.observe(el));
-
-
 
   //codice per effetto parlalax
   const arrows = document.querySelectorAll(".scroll-arrow");
@@ -175,9 +169,8 @@ document.addEventListener("DOMContentLoaded", function () {
     "img/prova.png",
     "img/software-archiviazione.jpg",
     "img/aereospaziale.jpg",
-   
-    "img/train.jpg",
 
+    "img/train.jpg",
   ];
 
   let currentImageIndex = 0;
@@ -346,5 +339,8 @@ rightArrow.addEventListener("click", () => {
 
 function clearForm() {
   // Resetta il modulo
-  document.getElementById("myForm").reset();
+  setTimeout(() => {
+    document.getElementById("contact-form").reset();
+
+  }, 1000);
 }
